@@ -1,3 +1,8 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{./theme/beamerinnerthemeunsw}
+\usepackage{libertine}
+
+
 % \DeclareOptionBeamer{shadow}[true]{\def\beamer@themerounded@shadow{#1}}
 % \ExecuteOptionsBeamer{shadow=false}
 % \ProcessOptionsBeamer
@@ -6,11 +11,11 @@
 
 % \setbeamertemplate{blocks}[rounded][shadow=\beamer@themerounded@shadow]
 % \setbeamertemplate{items}[ball]
-% \setbeamertemplate{sections/subsections in toc}[ball]
-% \setbeamertemplate{title page}[default][colsep=-4bp,rounded=true,shadow=\beamer@themerounded@shadow]
-% \setbeamertemplate{part page}[default][colsep=-4bp,rounded=true,shadow=\beamer@themerounded@shadow]
-% \setbeamertemplate{section page}[default][colsep=-4bp,rounded=true,shadow=\beamer@themerounded@shadow]
-% \setbeamertemplate{subsection page}[default][colsep=-4bp,rounded=true,shadow=\beamer@themerounded@shadow]
+ \setbeamertemplate{sections/subsections in toc}[ball]
+% \setbeamertemplate{title page}[unsw][colsep=-4bp,rounded=true,shadow=\beamer@themerounded@shadow]
+% \setbeamertemplate{part page}[unsw][colsep=-4bp,rounded=true,shadow=\beamer@themerounded@shadow]
+% \setbeamertemplate{section page}[unsw][colsep=-4bp,rounded=true,shadow=\beamer@themerounded@shadow]
+% \setbeamertemplate{subsection page}[unsw][colsep=-4bp,rounded=true,shadow=\beamer@themerounded@shadow]
   
 % \mode<all>
 
@@ -40,10 +45,9 @@
 \pgfaliasimage{beamericononline.!5opaque}{beamericononlineshaded}
 \pgfaliasimage{beamericononline.!2opaque}{beamericononlineshaded}
 
-% Title page: default
+% Title page: unsw
 
-\defbeamertemplate*{title page}{default}[1][]
-{
+\defbeamertemplate*{title page}{unsw}[1][]{
   \vbox{}
   \vfill
   \begingroup
@@ -72,10 +76,9 @@
 }
 
 
-% Part page: default
+% Part page: unsw
 
-\defbeamertemplate*{part page}{default}[1][]
-{
+\defbeamertemplate*{part page}{unsw}[1][]{
   \begingroup
     \centering
     {\usebeamerfont{part name}\usebeamercolor[fg]{part name}\partname~\insertromanpartnumber}
@@ -87,9 +90,9 @@
 }
 
 
-% Section page: default
+% Section page: unsw
 
-\defbeamertemplate*{section page}{default}[1][]
+\defbeamertemplate*{section page}{unsw}[1][]
 {
   \begingroup
     \centering
@@ -101,9 +104,9 @@
   \endgroup
 }
 
-% Subection page: default
+% Subection page: unsw
 
-\defbeamertemplate*{subsection page}{default}[1][]
+\defbeamertemplate*{subsection page}{unsw}[1][]
 {
   \begingroup
     \centering
@@ -122,37 +125,35 @@
 % Table of contents
 %
 
-\defbeamertemplateparent{sections/subsections in toc}{section in toc,subsection in toc,subsubsection in toc}
-{}
+\defbeamertemplateparent{sections/subsections in toc}{section in toc,subsection in toc,subsubsection in toc}{}
 
-\defbeamertemplateparent{sections/subsections in toc shaded}{section in toc shaded,subsection in toc shaded,subsubsection in toc shaded}[1][20]
-{[#1]}
+\defbeamertemplateparent{sections/subsections in toc shaded}{section in toc shaded,subsection in toc shaded,subsubsection in toc shaded}[1][20]{[#1]}
 
 
 
 
-% (sub-)section in toc: default
+% (sub-)section in toc: unsw
 
-\defbeamertemplate*{section in toc}{default}
+\defbeamertemplate*{section in toc}{unsw}
 {\inserttocsection\par}
 
-\defbeamertemplate*{subsection in toc}{default}
+\defbeamertemplate*{subsection in toc}{unsw}
 {\leavevmode\leftskip=1.5em\inserttocsubsection\par}
 
-\defbeamertemplate*{subsubsection in toc}{default}
+\defbeamertemplate*{subsubsection in toc}{unsw}
 {\leavevmode\normalsize\usebeamerfont{subsection in toc}\leftskip=3em%
   \usebeamerfont{subsubsection in toc}\inserttocsubsubsection\par}
 
 
-% (sub-)section in toc shaded, default
+% (sub-)section in toc shaded, unsw
 
-\defbeamertemplate*{section in toc shaded}{default}[1][20]
+\defbeamertemplate*{section in toc shaded}{unsw}[1][20]
 {\begin{colormixin}{#1!parent.bg}\usebeamertemplate{section in toc}\end{colormixin}\unskip}
 
-\defbeamertemplate*{subsection in toc shaded}{default}[1][20]
+\defbeamertemplate*{subsection in toc shaded}{unsw}[1][20]
 {\begin{colormixin}{#1!parent.bg}\usebeamertemplate{subsection in toc}\end{colormixin}\unskip}
 
-\defbeamertemplate*{subsubsection in toc shaded}{default}[1][20]
+\defbeamertemplate*{subsubsection in toc shaded}{unsw}[1][20]
 {\begin{colormixin}{#1!parent.bg}\usebeamertemplate{subsubsection in toc}\end{colormixin}\unskip}
 
 
@@ -163,76 +164,73 @@
 % Item
 %
 
-\defbeamertemplateparent{items}{itemize items,enumerate items}
-{}
+%\defbeamertemplateparent{items}{itemize items,enumerate items}{}
 
 
 % Itemize items
 
-\defbeamertemplateparent{itemize items}{itemize item,itemize subitem,itemize subsubitem}
-{}
+%\defbeamertemplateparent{itemize items}{itemize item,itemize subitem,itemize subsubitem}{}
 
 
-% Itemize items, default
+% Itemize items, unsw
 
-\defbeamertemplate*{itemize item}{default}{\usebeamerfont*{itemize item}\raise1.25pt\hbox{\donotcoloroutermaths$\blacktriangleright$}}
-\defbeamertemplate*{itemize subitem}{default}{\usebeamerfont*{itemize subitem}\raise1.5pt\hbox{\donotcoloroutermaths$\blacktriangleright$}}
-\defbeamertemplate*{itemize subsubitem}{default}{\usebeamerfont*{itemize subsubitem}\raise1.5pt\hbox{\donotcoloroutermaths$\blacktriangleright$}}
-
-
-% Enumerate items, default
-
-\defbeamertemplateparent{enumerate items}{enumerate item,enumerate subitem,enumerate subsubitem,enumerate mini template}
-{}
-
-\defbeamertemplate*{enumerate item}{default}{\insertenumlabel.}
-\defbeamertemplate*{enumerate subitem}{default}{\insertenumlabel.\insertsubenumlabel}
-\defbeamertemplate*{enumerate subsubitem}{default}{\insertenumlabel.\insertsubenumlabel.\insertsubsubenumlabel}
-\defbeamertemplate*{enumerate mini template}{default}{\insertenumlabel}
+\defbeamertemplate*{itemize item}{unsw}{\usebeamerfont*{itemize item}\raise1.25pt\hbox{\donotcoloroutermaths$\blacktriangleright$}}
+\defbeamertemplate*{itemize subitem}{unsw}{\usebeamerfont*{itemize subitem}\raise1.5pt\hbox{\donotcoloroutermaths$\blacktriangleright$}}
+\defbeamertemplate*{itemize subsubitem}{unsw}{\usebeamerfont*{itemize subsubitem}\raise1.5pt\hbox{\donotcoloroutermaths$\blacktriangleright$}}
 
 
-% Description item, default
+% Enumerate items, unsw
 
-\defbeamertemplate*{description item}{default}{\insertdescriptionitem}
+%\defbeamertemplateparent{enumerate items}{enumerate item,enumerate subitem,enumerate subsubitem,enumerate mini template}{}
+
+\defbeamertemplate*{enumerate item}{unsw}{\insertenumlabel.}
+\defbeamertemplate*{enumerate subitem}{unsw}{\insertenumlabel.\insertsubenumlabel}
+\defbeamertemplate*{enumerate subsubitem}{unsw}{\insertenumlabel.\insertsubenumlabel.\insertsubsubenumlabel}
+\defbeamertemplate*{enumerate mini template}{unsw}{\insertenumlabel}
+
+
+% Description item, unsw
+
+\defbeamertemplate*{description item}{unsw}{\insertdescriptionitem}
 
 
 % Itemize/Enumerate body
 
-\defbeamertemplate*{itemize/enumerate body begin}{default}{}
-\defbeamertemplate*{itemize/enumerate body end}{default}{}
+\defbeamertemplate*{itemize/enumerate body begin}{unsw}{}
+\defbeamertemplate*{itemize/enumerate body end}{unsw}{}
 
-\defbeamertemplate*{itemize/enumerate subbody begin}{default}{}
-\defbeamertemplate*{itemize/enumerate subbody end}{default}{}
+\defbeamertemplate*{itemize/enumerate subbody begin}{unsw}{}
+\defbeamertemplate*{itemize/enumerate subbody end}{unsw}{}
 
-\defbeamertemplate*{itemize/enumerate subsubbody begin}{default}{}
-\defbeamertemplate*{itemize/enumerate subsubbody end}{default}{}
+\defbeamertemplate*{itemize/enumerate subsubbody begin}{unsw}{}
+\defbeamertemplate*{itemize/enumerate subsubbody end}{unsw}{}
 
 % Description body
 
-\defbeamertemplate*{description body begin}{default}{}
-\defbeamertemplate*{description body end}{default}{}
+\defbeamertemplate*{description body begin}{unsw}{}
+\defbeamertemplate*{description body end}{unsw}{}
 
 
 % Alerted text
 
-\defbeamertemplate*{alerted text begin}{default}{\setbeamercolor{local structure}{parent=alerted text}}
+\defbeamertemplate*{alerted text begin}{unsw}{\setbeamercolor{local structure}{parent=alerted text}}
 
 
 
 % Structured text
 
-% empyt defaults
+% empyt unsws
 
 
 % Bibliography items
 
-\defbeamertemplate*{bibliography item}{default}
+\defbeamertemplate*{bibliography item}{unsw}
 {\lower3.5pt\hbox{\hskip2pt\pgfuseimage{beamericonarticle}\hskip1pt}}
 
-\defbeamertemplate*{bibliography entry article}{default}{}
-\defbeamertemplate*{bibliography entry title}{default}{\par}
-\defbeamertemplate*{bibliography entry location}{default}{\par}
-\defbeamertemplate*{bibliography entry note}{default}{\par}
+\defbeamertemplate*{bibliography entry article}{unsw}{}
+\defbeamertemplate*{bibliography entry title}{unsw}{\par}
+\defbeamertemplate*{bibliography entry location}{unsw}{\par}
+\defbeamertemplate*{bibliography entry note}{unsw}{\par}
 
 
 % Buttons
@@ -240,7 +238,7 @@
 \newdimen\beamer@dima%
 \newdimen\beamer@dimb%
 
-\defbeamertemplate*{button}{default}
+\defbeamertemplate*{button}{unsw}
 {%
   \setbox\beamer@tempbox=\hbox{{\insertbuttontext}}%
   \ht\beamer@tempbox=6pt%
@@ -291,50 +289,50 @@
 
 % Abstract
 
-\defbeamertemplate*{abstract title}{default}
+\defbeamertemplate*{abstract title}{unsw}
 {%
   \begin{center}%
     \abstractname
   \end{center}%
 }
 
-\defbeamertemplate*{abstract begin}{default}
+\defbeamertemplate*{abstract begin}{unsw}
 {\beamercolorbox[vmode]{abstract}\leftskip2em\rightskip2em plus 1fill\usebeamerfont*{abstract}}
 
-\defbeamertemplate*{abstract end}{default}
+\defbeamertemplate*{abstract end}{unsw}
 {\medskip\endbeamercolorbox}
 
 
 % Verse
 
-\defbeamertemplate*{verse begin}{default}
+\defbeamertemplate*{verse begin}{unsw}
 {\beamercolorbox[vmode]{verse}}
 
-\defbeamertemplate*{verse end}{default}
+\defbeamertemplate*{verse end}{unsw}
 {\endbeamercolorbox}
 
 
 % Quotation
 
-\defbeamertemplate*{quotation begin}{default}
+\defbeamertemplate*{quotation begin}{unsw}
 {\beamercolorbox[vmode]{quotation}}
 
-\defbeamertemplate*{quotation end}{default}
+\defbeamertemplate*{quotation end}{unsw}
 {\endbeamercolorbox}
 
 
 % Quote
 
-\defbeamertemplate*{quote begin}{default}
+\defbeamertemplate*{quote begin}{unsw}
 {\beamercolorbox[vmode]{quote}}
 
-\defbeamertemplate*{quote end}{default}
+\defbeamertemplate*{quote end}{unsw}
 {\endbeamercolorbox}
 
 
 % Footnotes
 
-\defbeamertemplate*{footnote}{default}
+\defbeamertemplate*{footnote}{unsw}
 {
   \parindent 1em\noindent%
   \raggedright
@@ -344,7 +342,7 @@
 
 % Captions
 
-\defbeamertemplate*{caption}{default}
+\defbeamertemplate*{caption}{unsw}
 {%
   \raggedright
   {%
@@ -355,16 +353,16 @@
   }%
   \insertcaption\par
 }
-\defbeamertemplate*{caption label separator}{default}{:\ }
+\defbeamertemplate*{caption label separator}{unsw}{:\ }
 
 % Blocks
 
-\defbeamertemplateparent{blocks}{block begin,block end,%
-  block alerted begin,block alerted end,%
-  block example begin,block example end}
-{}
 
-\defbeamertemplate*{block begin}{default}
+
+
+%\defbeamertemplateparent{blocks}{block begin,block end,%  block alerted begin,block alerted end,%  block example begin,block example end}{}
+
+\defbeamertemplate*{block begin}{unsw}
 {
   \par\vskip\medskipamount%
   \begin{beamercolorbox}[colsep*=.75ex]{block title}
@@ -378,10 +376,10 @@
   \begin{beamercolorbox}[colsep*=.75ex,vmode]{block body}%
     \ifbeamercolorempty[bg]{block body}{\vskip-.25ex}{\vskip-.75ex}\vbox{}%
 }
-\defbeamertemplate*{block end}{default}  
+\defbeamertemplate*{block end}{unsw}  
 {\end{beamercolorbox}\vskip\smallskipamount}
 
-\defbeamertemplate*{block alerted begin}{default}
+\defbeamertemplate*{block alerted begin}{unsw}
 {
   \par\vskip\medskipamount%
   \begin{beamercolorbox}[colsep*=.75ex]{block title alerted}
@@ -396,11 +394,11 @@
     \ifbeamercolorempty[bg]{block body alerted}{\vskip-.25ex}{\vskip-.75ex}\vbox{}%
 }
 
-\defbeamertemplate*{block alerted end}{default}
+\defbeamertemplate*{block alerted end}{unsw}
 {\end{beamercolorbox}\vskip\smallskipamount}
 
 
-\defbeamertemplate*{block example begin}{default}
+\defbeamertemplate*{block example begin}{unsw}
 {
   \par\vskip\medskipamount%
   \begin{beamercolorbox}[colsep*=.75ex]{block title example}
@@ -414,7 +412,7 @@
   \begin{beamercolorbox}[colsep*=.75ex,vmode]{block body example}%
     \ifbeamercolorempty[bg]{block body example}{\vskip-.25ex}{\vskip-.75ex}\vbox{}%
 }
-\defbeamertemplate*{block example end}{default}
+\defbeamertemplate*{block example end}{unsw}
 {\end{beamercolorbox}\vskip\smallskipamount}
 
 
@@ -422,10 +420,9 @@
 
 % Theorems
 
-\defbeamertemplateparent{theorems}{theorem begin,theorem end}
-{}
+%\defbeamertemplateparent{theorems}{theorem begin,theorem end}{}
 
-\defbeamertemplate*{theorem begin}{default}
+\defbeamertemplate*{theorem begin}{unsw}
 {%
   \begin{\inserttheoremblockenv}
   {%
@@ -434,18 +431,18 @@
   }%
 }
 
-\defbeamertemplate*{theorem end}{default}
+\defbeamertemplate*{theorem end}{unsw}
 {\end{\inserttheoremblockenv}}
 
 
 % Proofs
-\defbeamertemplate*{proof begin}{default}
+\defbeamertemplate*{proof begin}{unsw}
 {\begin{block}{\insertproofname}}
 
-\defbeamertemplate*{proof end}{default}
+\defbeamertemplate*{proof end}{unsw}
 {\end{block}}
 
-\defbeamertemplate*{qed symbol}{default}
+\defbeamertemplate*{qed symbol}{unsw}
 {\openbox}
 
 
@@ -453,3 +450,5 @@
 
 \mode
 <all>
+
+\endinput

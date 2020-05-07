@@ -1,0 +1,29 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{./theme/beamerthemeunsw}
+\usepackage{libertine}
+
+
+
+\mode<presentation>
+
+% Requirement
+\RequirePackage{tikz}
+
+% Settings
+\usepackage{./theme/beamercolorthemeunsw}
+\usepackage{./theme/beamerinnerthemeunsw}
+\usepackage{./theme/beamerouterthemeunsw}
+
+
+%\useinnertheme{unsw}
+%\useinnertheme[shadow=false]{unsw}
+%\usecolortheme{unsw}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{blocks}[rounded][shadow=true]  
+
+\setbeamerfont{block title}{size={}}
+\setbeamercolor{titlelike}{parent=structure,bg=white}
+
+\mode<all>
+\endinput
