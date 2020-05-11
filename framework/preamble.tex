@@ -1,11 +1,15 @@
 
 % ##################################################
-% Literaturverzeichnis
+% References
 % ##################################################
 
 \usepackage[style=authortitle,backend=biber]{biblatex}
+
+
+
 \addbibresource{references.bib}
 
+% Adding year after the title.
 \usepackage{xpatch}
 \xpatchbibmacro{cite}
   {\usebibmacro{cite:title}}
@@ -14,14 +18,22 @@
    \usebibmacro{date}}
    {}
    {}
+   
+\makeatletter
+    \def\@makefnmark{\hbox{{{\usebeamercolor[fg]{footnote mark}\usebeamerfont*{footnote mark} [\@thefnmark]}}}}
+
+    \def\@makefntext#1{%
+        \def\insertfootnotetext{ #1}%
+        \def\insertfootnotemark{\@makefnmark}%
+        \usebeamertemplate***{footnote}}    
+\makeatother
+
+   
 % ##################################################
-% Tabellenverzeichnis und Tabellen
+% Tables
 % ##################################################
 
 \usepackage{tabularx}
-
-
-
 
 % Unterdrueckung von vertikalen Linien
 \usepackage{booktabs}
@@ -39,20 +51,29 @@
 \newcolumntype{H}{>{\setbox0=\hbox\bgroup}c<{\egroup}@{}}
 
 % ##################################################
+% Writing Latex Commands
+% ##################################################
+
+\usepackage{verbatim}
+
+
+% ##################################################
 % Definitions
 % ##################################################
 
 \newcommand{\means}{$\Rightarrow$}
 
-% Defined Blocks
+% ##################################################
+% Block definition: Alert, Info, Annotation
+% ##################################################
 
 \newtheorem{remark-important}{Test}
 \newtheorem{remark-info}{Thought}
 
-\newenvironment<>{remark-important}[1][]{
-    \setbeamercolor{block title example}{fg=white,bg=red!75!black}
-    \begin{example} #2 [#1] } {\end{example}}
+%\newenvironment<>{remark-important}[1][]{
+%    \setbeamercolor{block title example}{fg=white,bg=red!75!black}
+%    \begin{example} #2 [#1] } {\end{example}}
   
-\newenvironment<>{remark-info}[1][]{%
-  \setbeamercolor{block title example}{fg=white,bg=blue!75!black}%
-  \begin{example}#2[#1]}{\end{example}}
+%\newenvironment<>{remark-info}[1][]{%
+%  \setbeamercolor{block title example}{fg=white,bg=blue!75!black}%
+%  \begin{example}#2[#1]}{\end{example}}
